@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KELRIZ  Acquisition Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #E4F7EE;
+      --surface:      #FFFFFF;
+      --border:       #C2E8D4;
+      --accent:       #00FF7A;
+      --accent-dark:  #0A5C30;
+      --accent-dim:   rgba(0, 255, 122, 0.12);
+      --text:         #1B2D3A;
+      --text-mid:     #4A6572;
+      --text-muted:   #8AAAB8;
+      --loss:         #E53935;
+      --loss-dim:     rgba(229, 57, 53, 0.08);
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 40px 120px;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 64px 0;
+    }
+
+    .divider-short {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 24px 0;
+    }
+
+    /* ── HEADER ── */
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 96px;
+    }
+
+    .brand-block .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      text-transform: uppercase;
+    }
+
+    .brand-block .brand-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .doc-meta {
+      text-align: right;
+    }
+
+    .doc-meta .doc-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .doc-meta .doc-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      margin-top: 4px;
+    }
+
+    /* ── OPENING ── */
+    .opening {
+      margin-bottom: 80px;
+    }
+
+    .eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent-dark);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .display-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .display-headline em {
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 600px;
+      line-height: 1.75;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 72px;
+    }
+
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .body-text {
+      font-size: 0.975rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .body-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── CALLOUT ── */
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+
+    .callout p {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.35rem;
+      line-height: 1.5;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    /* ── STAT CARDS ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      padding: 28px 24px;
+    }
+
+    .stat-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 2rem;
+      color: var(--accent-dark);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── FEATURE LIST ── */
+    .feature-list {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li::before {
+      content: '→';
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .feature-list li strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── REVENUE TABLE ── */
+    .revenue-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--border);
+      margin: 32px 0;
+      font-size: 0.875rem;
+    }
+
+    .revenue-table thead {
+      background: var(--accent-dark);
+    }
+
+    .revenue-table thead th {
+      padding: 14px 18px;
+      text-align: left;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg);
+      font-weight: 400;
+    }
+
+    .revenue-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .revenue-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .revenue-table tbody td {
+      padding: 14px 18px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      background: var(--surface);
+    }
+
+    .revenue-table tbody td:first-child {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .revenue-table .green {
+      color: var(--accent-dark);
+      font-weight: 500;
+    }
+
+    .revenue-table .highlight td {
+      background: var(--accent-dim);
+      color: var(--text);
+    }
+
+    .revenue-table .highlight td:first-child {
+      color: var(--accent-dark);
+      font-weight: 500;
+    }
+
+    .note {
+      font-size: 0.7rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--accent-dark);
+      font-weight: 500;
+      margin-left: 8px;
+    }
+
+    /* ── VALUE COMPARISON ── */
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    .val-card {
+      background: var(--surface);
+      padding: 32px 28px;
+    }
+
+    .val-card.highlight {
+      background: var(--accent-dark);
+    }
+
+    .val-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .val-card.highlight .val-label {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .val-amount {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 1.9rem;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .val-card.highlight .val-amount {
+      color: var(--accent);
+    }
+
+    .val-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .val-card.highlight .val-sub {
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    .included-item {
+      background: var(--surface);
+      padding: 20px 22px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .included-item .check {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent-dark);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .included-item .item-text {
+      font-size: 0.875rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .included-item .item-sub {
+      font-size: 0.775rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* ── CLOSE ── */
+    .close-block {
+      background: var(--accent-dark);
+      padding: 56px 48px;
+      margin-top: 64px;
+    }
+
+    .close-block .close-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 24px;
+    }
+
+    .close-block .close-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    .close-block .close-headline span {
+      color: var(--accent);
+    }
+
+    .close-body {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      max-width: 560px;
+    }
+
+    .close-ask {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ask-amount {
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .ask-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .ask-contact {
+      text-align: right;
+    }
+
+    .ask-contact .contact-line {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+    }
+
+    /* ── VULNERABILITY SECTION ── */
+    .personal-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 36px 36px;
+      margin: 40px 0;
+    }
+
+    .personal-block .personal-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .personal-block p {
+      font-size: 0.975rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+
+    .personal-block p:last-child { margin-bottom: 0; }
+
+    .personal-block p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    .doc-footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .doc-footer .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .doc-footer .footer-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 48px 24px 80px; }
+      .stat-row { grid-template-columns: 1fr; }
+      .value-grid { grid-template-columns: 1fr; }
+      .included-grid { grid-template-columns: 1fr; }
+      .doc-header { flex-direction: column; gap: 16px; }
+      .doc-meta { text-align: left; }
+      .close-block { padding: 40px 28px; }
+      .close-ask { flex-direction: column; gap: 24px; align-items: flex-start; }
+      .ask-contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="brand-block">
+      <div class="brand-name">KELRIZ</div>
+      <div class="brand-sub">KELVIN TALENT × TECHRIZ</div>
+    </div>
+    <div class="doc-meta">
+      <div class="doc-label">Acquisition Proposal</div>
+      <div class="doc-date">Confidential · 2026</div>
+    </div>
+  </div>
+
+  <!-- OPENING -->
+  <div class="opening">
+    <div class="eyebrow">A Private Proposal</div>
+    <h1 class="display-headline">
+      You have 6,000 people<br />
+      waiting.<br />
+      <em>Give them somewhere to go.</em>
+    </h1>
+    <p class="lead">
+      This is a proposal to acquire a complete trading transparency and signal
+      subscription platform — purpose-built for exactly what KELVIN TALENT ×
+      TECHRIZ is already doing. The infrastructure your waitlist has been
+      waiting for.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION I — THE SITUATION -->
+  <div class="section">
+    <div class="section-label">Section I</div>
+    <h2 class="section-title">The situation is already in your favour.</h2>
+
+    <p class="body-text">
+      You ran a waitlist flyer and 6,000 people signed up. That is not a small
+      number. That is a verified, self-selecting audience telling you they want
+      to give you money for trading signals.
+    </p>
+    <p class="body-text">
+      Most signal providers spend months and substantial capital trying to build
+      that kind of attention. You already have it. The question is no longer
+      whether there is demand. The question is: <strong>what do you put in
+      front of those 6,000 people?</strong>
+    </p>
+    <p class="body-text">
+      A Telegram link and a flyer built the waitlist. But it will not convert
+      them, retain them, or build the kind of trust that justifies premium
+      pricing. For that, you need infrastructure. You need a platform.
+    </p>
+
+    <div class="callout">
+      <p>"The signal selling space is full of anonymous accounts posting screenshots.
+      The ones who win long-term are the ones who can prove their performance —
+      publicly, verifiably, in real time."</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION II — WHAT THIS IS -->
+  <div class="section">
+    <div class="section-label">Section II</div>
+    <h2 class="section-title">What you are acquiring.</h2>
+
+    <p class="body-text">
+      A complete, production-grade web platform branded to KELRIZ — built on
+      modern infrastructure that runs itself. Not a template. Not a WordPress
+      plugin. A custom-built system designed specifically for a trading signal
+      business at scale.
+    </p>
+
+    <div class="divider-short"></div>
+
+    <ul class="feature-list">
+      <li>
+        <strong>Public Trading Dashboard</strong> — Live equity curves, trade logs,
+        win rate, profit factor, average R:R. All pulled automatically from your
+        MT5 broker accounts. Updated hourly. Visible to everyone who visits.
+      </li>
+      <li>
+        <strong>Multi-Account Display</strong> — Show multiple funded accounts
+        simultaneously. Each with its own performance card and full detail page.
+        The aggregate view across all accounts is what your visitors see first.
+      </li>
+      <li>
+        <strong>Signal Transparency Log</strong> — Every setup you publish is
+        logged with entry zone, stop loss, target, timeframe, and your one-line
+        rationale. Published with a 24-hour delay after entry. Outcomes tracked
+        automatically: Hit, Missed, Invalidated.
+      </li>
+      <li>
+        <strong>Signal Subscription System</strong> — A full conversion page with
+        your bank details, a payment submission form, and a subscriber management
+        backend. Someone pays, submits proof — you approve in the admin panel and
+        the system emails them their private Telegram invite link automatically.
+      </li>
+      <li>
+        <strong>Subscriber Management Admin Panel</strong> — A fully separate,
+        secure admin interface. Track every subscriber: name, email, join date,
+        expiry date, payment status. See who is expiring in the next 14 days.
+        Approve and reject payments. All in one place.
+      </li>
+      <li>
+        <strong>Weekly Analysis Posts</strong> — A built-in publishing system
+        for weekly market analysis. Write in the admin panel, publish to the
+        public site. Keeps the platform active and gives non-subscribers a
+        reason to return.
+      </li>
+      <li>
+        <strong>Methodology Page</strong> — A dedicated page explaining your
+        edge, your framework, your risk principles. Written in your voice.
+        This is the single biggest trust-converter on the site.
+      </li>
+      <li>
+        <strong>Two Years of Free Maintenance</strong> — Bug fixes, dependency
+        updates, minor feature additions, infrastructure support. Covered.
+        No retainer. No monthly fee.
+      </li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION III — THE NUMBERS -->
+  <div class="section">
+    <div class="section-label">Section III</div>
+    <h2 class="section-title">The numbers are not complicated.</h2>
+
+    <p class="body-text">
+      You have 6,000 people on a waitlist. You do not need all of them. You do
+      not need most of them. You need a small fraction to pay, and the platform
+      pays for itself immediately.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">6,000</div>
+        <div class="stat-label">Current Waitlist</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0.22%</div>
+        <div class="stat-label">Conversion Needed to Break Even</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">13</div>
+        <div class="stat-label">Subscribers to Recover Full Cost</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      At $200 per subscriber per 2-month cycle, thirteen paying subscribers
+      recover the full acquisition cost in a single month. Not year one.
+      <strong>Month one.</strong>
+    </p>
+
+    <table class="revenue-table">
+      <thead>
+        <tr>
+          <th>Subscribers</th>
+          <th>Revenue / Month</th>
+          <th>Revenue (NGN)</th>
+          <th>Annual Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>5</td>
+          <td>$1,000</td>
+          <td>₦1,600,000</td>
+          <td>₦19,200,000</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="green">$2,000</td>
+          <td>₦3,200,000</td>
+          <td>₦38,400,000</td>
+        </tr>
+        <tr class="highlight">
+          <td>13</td>
+          <td class="green">$2,600</td>
+          <td>₦4,160,000</td>
+          <td>₦49,920,000 <span class="note">← Break-even month 1</span></td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td class="green">$5,000</td>
+          <td>₦8,000,000</td>
+          <td>₦96,000,000</td>
+        </tr>
+        <tr>
+          <td>50</td>
+          <td class="green">$10,000</td>
+          <td>₦16,000,000</td>
+          <td>₦192,000,000</td>
+        </tr>
+        <tr>
+          <td>100</td>
+          <td class="green">$20,000</td>
+          <td>₦32,000,000</td>
+          <td>₦384,000,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      These numbers assume $200 per subscriber per cycle — a pricing point that
+      is entirely defensible when the platform shows verified, live performance
+      data. The transparency is the justification for premium pricing. Without
+      it, you are competing with every faceless signal seller on Telegram.
+      <strong>With it, you are in a different category entirely.</strong>
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION IV — VALUE COMPARISON -->
+  <div class="section">
+    <div class="section-label">Section IV</div>
+    <h2 class="section-title">What this is worth versus what you are paying.</h2>
+
+    <p class="body-text">
+      To build this platform from scratch with a professional development agency
+      in Nigeria, you are looking at a minimum of six to twelve months and a
+      budget that reflects it. The itemised cost is not speculative.
+    </p>
+
+    <div class="value-grid">
+      <div class="val-card">
+        <div class="val-label">True Market Build Cost</div>
+        <span class="val-amount">₦40,000,000</span>
+        <p class="val-sub">Full-stack platform built by a professional agency:
+        frontend, backend, database architecture, admin panel, MT5 integration,
+        broker sync, email system, security, deployment, documentation.
+        Minimum estimate. Conservative.</p>
+      </div>
+      <div class="val-card highlight">
+        <div class="val-label">Acquisition Ask</div>
+        <span class="val-amount">₦4,000,000</span>
+        <p class="val-sub">One time. Complete platform. Full codebase.
+        Branded to KELRIZ. Deployed and live. Two years of free maintenance
+        included. That is all.</p>
+      </div>
+    </div>
+
+    <p class="body-text">
+      You are being offered something that costs ₦40 million to build for
+      ₦4 million — a 90% discount — with two years of maintenance thrown in
+      at no additional cost. The maintenance alone, billed at market rate,
+      is worth more than the ask.
+    </p>
+
+    <p class="body-text">
+      The reason for the discount is straightforward: this is not a business
+      transaction in isolation. It is a strategic one. A platform like this,
+      deployed with a brand that already has 6,000 people waiting, creates a
+      proof of concept that benefits both parties. You get the infrastructure.
+      I get the evidence.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION V — PERSONAL -->
+  <div class="section">
+    <div class="section-label">Section V</div>
+    <h2 class="section-title">Why I am bringing this to you directly.</h2>
+
+    <div class="personal-block">
+      <div class="personal-label">An honest account</div>
+      <p>
+        I built this platform over months. The architecture, the design system,
+        the database schema, the broker integration, the subscriber management
+        logic — every decision was made deliberately, with the goal of building
+        something that could actually function as a business, not just a
+        portfolio piece.
+      </p>
+      <p>
+        Right now, ₦4 million is not a casual number for me. It is meaningful.
+        I am not hiding that. But I want to be clear: that is not why I think
+        you should buy it. I think you should buy it because the numbers make
+        sense, the timing is right, and the platform solves a real problem you
+        already have.
+      </p>
+      <p>
+        <strong>You have 6,000 people waiting.</strong> The infrastructure exists.
+        What happens next is a decision.
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION VI — WHAT HAPPENS NEXT -->
+  <div class="section">
+    <div class="section-label">Section VI</div>
+    <h2 class="section-title">What happens after you say yes.</h2>
+
+    <ul class="feature-list">
+      <li>
+        <strong>Week 1</strong> — Payment confirmed. I begin branding the platform
+        to KELRIZ. Your logo, your colours, your content, your bank details in the
+        payment system. Full handoff preparation begins.
+      </li>
+      <li>
+        <strong>Week 2</strong> — Supabase project provisioned under your account.
+        Domain connected. Platform deployed to Vercel. Admin panel live on a
+        private URL only you know. MT5 sync script configured for your broker accounts.
+      </li>
+      <li>
+        <strong>Week 3</strong> — Full walkthrough session. I show you how to
+        approve subscribers, publish signals, write analysis posts, manage config.
+        Everything documented. You are fully independent.
+      </li>
+      <li>
+        <strong>After handoff</strong> — Two years of free maintenance begins.
+        Any bug, any update, any infrastructure issue — I handle it. You run
+        the business.
+      </li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION VII — PROPHECY -->
+  <div class="section">
+    <div class="section-label">Section VII</div>
+    <h2 class="section-title">What this looks like in twelve months.</h2>
+
+    <p class="body-text">
+      In twelve months, if you work the platform the way it was designed to be
+      worked — consistent signals, honest performance display, weekly analysis —
+      you will have a subscriber base that generates recurring monthly revenue
+      from infrastructure you own outright.
+    </p>
+    <p class="body-text">
+      The ₦4 million you paid today will look like a rounding error against the
+      revenue the platform is generating. Not because the platform is magic.
+      Because you already did the hardest part: you built the audience.
+      <strong>The platform just converts them.</strong>
+    </p>
+
+    <div class="callout">
+      <p>"In one year, the ₦4 million you paid today will look like a rounding error
+      against the revenue the platform is generating."</p>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="close-block">
+    <div class="close-label">The Ask</div>
+    <h2 class="close-headline">
+      One payment.<br />
+      Everything included.<br />
+      <span>Your platform. Your brand.</span>
+    </h2>
+    <p class="close-body">
+      The codebase is complete. The design is done. The database is architected.
+      The admin panel is built. The broker sync script is written.
+      Everything is ready. What this proposal is asking for is the decision
+      to deploy it under your name and start converting the 6,000 people
+      who are already waiting.
+    </p>
+    <p class="close-body">
+      There is no ongoing fee. No monthly retainer. No royalty. One payment,
+      then the platform is yours — with two years of free maintenance included.
+    </p>
+
+    <div class="included-grid" style="margin-top: 32px; margin-bottom: 0;">
+      <div class="included-item">
+        <span class="check">✓</span>
+        <div>
+          <div class="item-text">Complete source code</div>
+          <div class="item-sub">Full ownership. Host anywhere.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <span class="check">✓</span>
+        <div>
+          <div class="item-text">KELRIZ brand integration</div>
+          <div class="item-sub">Colors, logo, name, content.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <span class="check">✓</span>
+        <div>
+          <div class="item-text">Full deployment + setup</div>
+          <div class="item-sub">Live, connected, running.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <span class="check">✓</span>
+        <div>
+          <div class="item-text">MT5 broker integration</div>
+          <div class="item-sub">Automated trade sync, hourly.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <span class="check">✓</span>
+        <div>
+          <div class="item-text">Admin panel + documentation</div>
+          <div class="item-sub">Full handoff session included.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <span class="check">✓</span>
+        <div>
+          <div class="item-text">2 years free maintenance</div>
+          <div class="item-sub">Bugs, updates, infrastructure.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="close-ask">
+      <div>
+        <div class="ask-amount">₦4,000,000</div>
+        <div class="ask-label">One time · No recurring fees from me · Full ownership</div>
+      </div>
+      <div class="ask-contact">
+        <div class="contact-line">Presented by Oche</div>
+        <div class="contact-line">@_iamoche · X / Twitter</div>
+        <div class="contact-line">Confidential · Not for distribution</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="footer-brand">KELVIN TALENT × TECHRIZ</div>
+    <div class="footer-note">PRIVATE & CONFIDENTIAL</div>
+  </div>
+
+</div>
+</body>
+</html>
